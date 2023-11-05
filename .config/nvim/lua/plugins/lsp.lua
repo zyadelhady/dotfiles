@@ -17,6 +17,26 @@ return {
     },
   },
   {
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
+    lazy = false,
+    opts = {
+      ensure_installed = {
+        "dockerfile-language-server",
+        "elixir-ls",
+        "json-lsp",
+        "lua-language-server",
+        "netcoredbg",
+        "omnisharp",
+        "stylelint",
+        "stylelint-lsp",
+        "stylua",
+        "trivy",
+      },
+      auto_update = false,
+      run_on_start = false,
+    },
+  },
+  {
     "neovim/nvim-lspconfig",
     event = "BufReadPre",
     init = function()
@@ -175,10 +195,26 @@ return {
         cmd = { "/home/zyad/.local/share/nvim/mason/packages/elixir-ls/language_server.sh" },
       })
 
-      lsp["omnisharp"].setup({
-        defaults,
+      require("lspconfig")["omnisharp"].setup({
+        filetypes = { "cs" },
+        cmd = {
+          "/home/zyad/.local/share/nvim/mason/packages/omnisharp/run",
+          "--languageserver",
+          "--hostPID",
+          tostring(vim.fn.getpid()),
+        },
+        root_dir = function()
+          require("lspconfig.util").root_pattern("*.csproj", "*.sln")
+        end,
+      })
+
+      lsp["dockerls"].setup({
         single_file_support = true,
-        filetypes = { "cs", "sln" },
+        filetypes = { "Dockerfile", "dockerfile" },
+        cmd = { "docker-langserver", "--stdio" },
+        root_dir = function()
+          require("lspconfig.util").root_pattern("Dockerfile")
+        end,
       })
 
       lsp["html"].setup({
