@@ -17,6 +17,10 @@ return {
     },
   },
   {
+    "OmniSharp/omnisharp-vim",
+    lazy = false,
+  },
+  {
     "WhoIsSethDaniel/mason-tool-installer.nvim",
     lazy = false,
     opts = {
@@ -195,17 +199,30 @@ return {
         cmd = { "/home/zyad/.local/share/nvim/mason/packages/elixir-ls/language_server.sh" },
       })
 
-      require("lspconfig")["omnisharp"].setup({
-        filetypes = { "cs" },
+      lsp["omnisharp"].setup({
+        filetypes = { "cs", "vb" },
         cmd = {
-          "/home/zyad/.local/share/nvim/mason/packages/omnisharp/run",
+          "/home/zyad/.local/share/nvim/mason/packages/omnisharp/omnisharp",
           "--languageserver",
           "--hostPID",
           tostring(vim.fn.getpid()),
         },
-        root_dir = function()
-          require("lspconfig.util").root_pattern("*.csproj", "*.sln")
+        root_dir = function(fname)
+          local root_patterns = { "*.sln", "*.csproj", "omnisharp.json", "function.json" }
+          for _, pattern in ipairs(root_patterns) do
+            local found = require("lspconfig.util").root_pattern(pattern)(fname)
+            if found then
+              return found
+            end
+          end
         end,
+        enable_editorconfig_support = true,
+        enable_ms_build_load_projects_on_demand = false,
+        enable_roslyn_analyzers = false,
+        organize_imports_on_format = true,
+        enable_import_completion = false,
+        sdk_include_prereleases = true,
+        analyze_open_documents_only = false,
       })
 
       lsp["dockerls"].setup({

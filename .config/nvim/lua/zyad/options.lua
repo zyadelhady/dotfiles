@@ -1,5 +1,7 @@
 local opt = vim.opt
 
+vim.g.OmniSharp_server_path = "/home/zyad/.local/share/nvim/mason/packages/omnisharp/omnisharp"
+
 -- Encoding
 vim.scriptencoding = "utf-8"
 opt.encoding = "utf-8"
