@@ -52,6 +52,8 @@ case "$TERM" in
     xterm-color|*-256color) color_prompt=yes;;
 esac
 
+
+
 # uncomment for a colored prompt, if the terminal has the capability; turned
 # off by default to not distract the user: the focus in a terminal window
 # should be on the output of commands, not on the prompt
@@ -117,6 +119,8 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
+alias bat='batcat'
+
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
@@ -139,7 +143,10 @@ export NVM_DIR="$HOME/.nvm"
 
 . "$HOME/.asdf/asdf.sh"
 
-alias projects="cd /mnt/D/projects"
+projects(){
+  cd /mnt/D/projects/"$1"
+}
+
 
 alias config='/usr/bin/git --git-dir=/mnt/D/projects/dotfiles/ --work-tree=$HOME' 
 
