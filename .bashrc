@@ -50,7 +50,8 @@ fi
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
     xterm-color|*-256color) color_prompt=yes;;
-esac
+ esac
+
 
 
 
@@ -147,11 +148,15 @@ projects(){
   cd /mnt/D/projects/"$1"
 }
 
+export PATH="$HOME/.scripts:$PATH"
+
 
 alias config='/usr/bin/git --git-dir=/mnt/D/projects/dotfiles/ --work-tree=$HOME' 
-
+alias fd="fdfind"
 NC='\[\e[0m\]'
 YELLOW='\[\e[0;93m\]'
+
+alias vim="nvim"
 
 PS1="$YELLOW>$NC "
 
