@@ -1,8 +1,8 @@
 return {
-  "Mofiqul/vscode.nvim",
-  priority = 1000,
-  lazy = false,
-  config = function()
+    'Mofiqul/vscode.nvim',
+    lazy = false,
+    priority = 999,
+ config = function()
     vim.o.background = "dark"
     require("vscode").setup({})
     require("vscode").load()

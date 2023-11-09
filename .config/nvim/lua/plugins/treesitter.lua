@@ -1,70 +1,72 @@
-return {
-  {
-    "nvim-treesitter/nvim-treesitter",
-    event = { "BufReadPost", "BufNewFile" },
-    dependencies = {
-      {
-        "windwp/nvim-autopairs",
-        opts = {
-          enable_check_bracket_line = true,
-          check_ts = true,
-          ts_config = {
-            javascript = { "template_string" },
+local config = function()
+    require("nvim-treesitter.configs").setup({
+        build = ":TSUpdate",
+        indent = {
+            enable = true,
+        },
+        autotag = {
+            enable = true,
+
           },
+        matchup = { enable = true },
+   pairs = { enable = true },
+      query_linter = {
+        enable = true,
+        use_virtual_text = true,
+        lint_events = { "BufWrite", "CursorHold" },
+      },
+          event = {
+
+          "BufReadPre",
+            "BufNewFile",
         },
-      },
-      {
-        "windwp/nvim-ts-autotag",
-      },
-      {
-        "nvim-treesitter/nvim-treesitter-textobjects",
-      },
-    },
-    opts = {
-      ensure_installed = {
-        "lua",
-        "bash",
-        "html",
-        "css",
-        "scss",
-        "astro",
-        "javascript",
-        "typescript",
-        "tsx",
-        "json",
-        "yaml",
-        "rasi",
-        "markdown",
-        "markdown_inline",
-        "vimdoc",
-        "diff",
-        "gitignore",
-        "gitcommit",
-        "git_rebase",
-        "git_config",
-      },
-      context_commentstring = {
-        enable = true,
-        enable_autocmd = false,
-      },
-      highlight = {
-        custom_captures = {},
-        enable = true,
-        additional_vim_regex_highlighting = false,
-      },
-      incremental_selection = {
-        enable = true,
-        keymaps = {
-          init_selection = "<Leader>v",
-          node_incremental = "<Leader>v",
-          node_decremental = "<bs>",
-          scope_incremental = false,
+        ensure_installed = {
+            "markdown",
+            "json",
+            "scss",
+            "javascript",
+            "tsx",
+            "rasi",
+            "typescript",
+            "yaml",
+            "html",
+            "css",
+            "markdown",
+            "bash",
+            "lua",
+            "dockerfile",
+            "solidity",
+            "gitignore",
+            "python",
+            "markdown_inline",
+            "vimdoc",
+            "vue",
+            "diff",
+            "gitignore",
+            "gitcommit",
+            "git_rebase",
+            "git_config",
         },
-      },
-      indent = {
-        enable = true,
-      },
-      textobjects = {
+        context_commentstring = {
+          enable = true,
+          enable_autocmd = false,
+        },
+      
+        auto_install = true,
+        highlight = {
+            enable = true,
+            additional_vim_regex_highlighting = true,
+        },
+        incremental_selection = {
+            enable = true,
+            keymaps = {
+                init_selection = "<Leader>v",
+                node_incremental = "<Leader>v",
+                node_decremental = "<bs>",
+                scope_incremental = false,
+            },
+        },
+        textobjects = {
         select = {
           enable = true,
           -- Automatically jump forward to textobj, similar to targets.vim
@@ -83,33 +85,35 @@ return {
           },
           include_surrounding_whitespace = true,
         },
+        },
+      
+
+    })
+end
+
+local dependencies = {
+        {
+        "windwp/nvim-autopairs",
+        opts = {
+          enable_check_bracket_line = true,
+          check_ts = true,
+          ts_config = {
+            javascript = { "template_string" },
+          },
+        },
       },
-      matchup = { enable = true },
-      autotag = { enable = true },
-      pairs = { enable = true },
-      query_linter = {
-        enable = true,
-        use_virtual_text = true,
-        lint_events = { "BufWrite", "CursorHold" },
+      {
+        "windwp/nvim-ts-autotag",
       },
-    },
-    config = function(_, opts)
-      require("nvim-treesitter.configs").setup(opts)
-    end,
-  },
-  {
-    "JoosepAlviste/nvim-ts-context-commentstring",
-    event = { "BufReadPost", "BufNewFile" },
-  },
-  {
-    "andymass/vim-matchup",
-    event = "BufReadPost",
-    init = function()
-      vim.o.matchpairs = "(:),{:},[:],<:>"
-    end,
-    config = function()
-      vim.g.matchup_matchparen_deferred = 1
-      vim.g.matchup_matchparen_offscreen = { method = "status_manual" }
-    end,
-  },
+      {
+        "nvim-treesitter/nvim-treesitter-textobjects",
+      },
+}
+
+return {
+	"nvim-treesitter/nvim-treesitter",
+    lazy = false,
+    dependencies = dependencies,
+    config = config,
+
 }

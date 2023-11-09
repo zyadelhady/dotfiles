@@ -1,1 +1,1 @@
-require("zyad")
+require("config")
