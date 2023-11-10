@@ -1,4 +1,5 @@
 local opts = {
+	lazy = false,
 	ensure_installed = {
 		"efm",
 		"bashls",
@@ -11,6 +12,7 @@ local opts = {
 		"lua_ls",
 		"emmet_ls",
 		"jsonls",
+		"elixirls",
 	},
 
 	automatic_installation = true,

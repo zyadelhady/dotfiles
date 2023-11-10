@@ -13,14 +13,15 @@ return {
 		null.setup({
 			debounce = 150,
 			sources = {
-				-- null.builtins.code_actions.gitsigns,
-				formatting.prettierd.with({ extra_filetypes = { "astro" } }),
+
+				-- diagnostics.credo,
+				formatting.prettierd.with({ extra_filetypes = { "elixir" } }),
 				formatting.fixjson,
 				formatting.stylua,
 				diagnostics.luacheck,
 				diagnostics.eslint_d.with({
 					diagnostics_format = "[eslint] #{m}\n(#{c})",
-					extra_filetypes = { "astro" },
+
 					condition = function(utils)
 						return utils.root_has_file({ ".eslintrc.cjs" or ".eslintrc" })
 					end,

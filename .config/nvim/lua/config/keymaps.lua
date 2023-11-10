@@ -1,23 +1,23 @@
-local keymap = require("util.keymapper").mapkey
+local keymap = vim.keymap.set
 
 local opts = { noremap = true, silent = true }
 
 -- Pane Navigation
-keymap("<C-h>", "<C-w>h", "n", opts, "go to left pane") -- Navigate Left
-keymap("<C-j>", "<C-w>j", "n", opts, "go to down pane") -- Navigate Down
-keymap("<C-k>", "<C-w>k", "n", opts, "go to up pane") -- Navigate Up
-keymap("<C-l>", "<C-w>l", "n", opts, "go to right pane") -- Navigate Right
+keymap("n", "<C-h>", "<C-w>h", opts) -- Navigate Left
+keymap("n", "<C-j>", "<C-w>j", opts) -- Navigate Down
+keymap("n", "<C-k>", "<C-w>k", opts) -- Navigate Up
+keymap("n", "<C-l>", "<C-w>l", opts) -- Navigate Right
 
 -- Window Management
 
-keymap("<leader>sr", ":vsplit<CR>", "n", opts, "split to right") -- Split Vertically
-keymap("<leader>sd", ":split<CR>", "n", opts, "split to down") -- Split Horizontally
-keymap("<leader>wc", "<C-w>q", "n", opts, "close the pane") -- close pane
-keymap("<leader>ww", "<C-w>w", "n", opts, "switch between panes") -- switch panes
+keymap("n", "<leader>sr", ":vsplit<CR>", opts) -- Split Vertically
+keymap("n", "<leader>sd", ":split<CR>", opts) -- Split Horizontally
+keymap("n", "<leader>wc", "<C-w>q", opts) -- close pane
+keymap("n", "<leader>ww", "<C-w>w", opts) -- switch panes
 
 -- Identing
-keymap("<S-TAB>", "<gv", "v")
-keymap("<TAB>", ">gv", "v")
+keymap("v", "<S-TAB>", "<gv")
+keymap("v", "<TAB>", ">gv")
 
 -- Comments
 vim.api.nvim_set_keymap("n", "<C-_>", "gcc", { noremap = false })

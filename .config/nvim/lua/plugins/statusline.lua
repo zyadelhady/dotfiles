@@ -1,12 +1,13 @@
 local config = function()
 	require("lualine").setup({
 		options = {
-			  globalstatus = true,    
-        icons_enabled = false,
-        theme = "onedark",
-        component_separators = "|",
-        section_separators = "",
+			globalstatus = true,
+			icons_enabled = false,
+			theme = "onedark",
+			component_separators = "|",
+			section_separators = "",
 		},
+		section = { lualine_b = { "branch" } },
 	})
 end
 

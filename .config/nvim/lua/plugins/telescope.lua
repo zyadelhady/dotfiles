@@ -27,7 +27,6 @@ local config = function()
 		pickers = {
 			find_files = {
 				find_command = { "fdfind" },
-				cwd_only = true,
 				hidden = true,
 				no_ignore = true,
 				theme = "dropdown",

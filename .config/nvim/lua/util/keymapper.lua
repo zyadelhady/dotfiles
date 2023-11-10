@@ -11,16 +11,13 @@ local default_opts = {
 
 --- @param opts (table|nil)
 --- @return table
-local get_opts = function(opts, desc)
+local get_opts = function(opts)
 	local all_opts = opts
 	if all_opts == nil then
 		all_opts = {}
 	end
 	for k, v in pairs(default_opts) do
 		all_opts[k] = all_opts[k] or v
-	end
-	if desc ~= nil then
-		all_opts.desc = desc
 	end
 	return all_opts
 end
@@ -46,13 +43,12 @@ end
 --- @param command string String
 --- @param vimmode (string|nil)
 --- @param options (table|nil)
---- @param desc (string|nil)
 --- @return nil
-local mapkey = function(keymaps, command, vimmode, options, desc)
+local mapkey = function(keymaps, command, vimmode, options)
 	local mode = get_mode(vimmode)
 	local lhs = keymaps
 	local rhs = get_cmd_string(command)
-	local opts = get_opts(options, desc)
+	local opts = get_opts(options)
 	vim.keymap.set(mode, lhs, rhs, opts)
 end
 

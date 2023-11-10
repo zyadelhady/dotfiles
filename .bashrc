@@ -149,7 +149,7 @@ projects(){
 }
 
 export PATH="$HOME/.scripts:$PATH"
-
+export PATH="/home/zyad/.cargo/bin:$PATH"
 
 alias config='/usr/bin/git --git-dir=/mnt/D/projects/dotfiles/ --work-tree=$HOME' 
 alias fd="fdfind"
