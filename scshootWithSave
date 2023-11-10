@@ -1,0 +1,5 @@
+#!/bin/bash
+
+maim /home/zyad/screenshots/screenshot.$(date +%F.%R:%S).png
+
+
