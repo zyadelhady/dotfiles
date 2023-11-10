@@ -1,0 +1,27 @@
+#!/home/zyad/.asdf/shims/python
+
+from datetime import datetime
+from sys import argv
+
+if len(argv) < 3:
+    print("Enter two dates is this format yyyy-mm-dd")
+    exit()
+
+time_format = "%Y-%m-%d"
+
+str_d1 = datetime.strftime(
+    datetime.today(), time_format) if argv[1] == "now" else argv[1]
+str_d2 = datetime.strftime(
+    datetime.today(), time_format) if argv[2] == "now" else argv[2]
+
+d1 = datetime.strptime(str_d1, time_format)
+d2 = datetime.strptime(str_d2, time_format)
+
+delta = abs(d1 - d2)
+total_days = delta.days
+years = total_days//365
+months = (total_days % 365)//31
+weeks = (total_days % 365 % 31)//7
+days = total_days % 365 % 31 % 7
+
+print(f"{years} Years, {months} Months, {weeks} Weeks, {days} Days | Total Days {total_days}")
