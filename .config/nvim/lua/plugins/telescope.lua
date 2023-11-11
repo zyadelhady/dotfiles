@@ -4,11 +4,14 @@ local config = function()
 	local telescope = require("telescope")
 	telescope.setup({
 		defaults = {
+			-- winblend = 10,
 			dynamic_preview_title = true,
 			path_display = { "smart" },
-			layout_strategy = "vertical",
+			-- layout_strategy = "vertical",
+			prompt_prefix = "    ",
+			selection_caret = "  ",
 			cache_picker = true,
-			file_ignore_patterns = { "node_modules", ".git/" },
+			file_ignore_patterns = { "node_modules", ".git/", "_build", "deps", "tmp", "cover", "phoenix-*.ez" },
 			preview = {
 				filesize_limit = 1,
 				treesitter = true,
@@ -29,7 +32,6 @@ local config = function()
 				find_command = { "fdfind" },
 				hidden = true,
 				no_ignore = true,
-				theme = "dropdown",
 				previewer = true,
 			},
 			diagnostics = {
@@ -52,6 +54,10 @@ local config = function()
 			live_grep_args = {
 				find_command = { "rg", "--files" },
 				auto_quoting = true,
+			},
+			refactors = {
+				initial_mode = "normal",
+				theme = "ivy",
 			},
 			file_browser = {
 				initial_mode = "normal",
@@ -93,7 +99,10 @@ local keys = {
 	{
 		"<leader>ff",
 		function()
-			require("telescope.builtin").find_files()
+			require("telescope.builtin").find_files({
+				layout_strategy = "horizontal",
+				layout_config = { width = 0.9, height = 0.5, preview_width = 0.5, preview_cutoff = 0.1 },
+			})
 		end,
 		desc = "Search files",
 	},
@@ -107,10 +116,10 @@ local keys = {
 	{
 		"<leader>/",
 		function()
-			require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
-				winblend = 10,
-				previewer = false,
-			}))
+			require("telescope.builtin").current_buffer_fuzzy_find({
+				layout_strategy = "horizontal",
+				layout_config = { width = 0.9, height = 0.5, preview_width = 0.5, preview_cutoff = 0.1 },
+			})
 		end,
 		desc = "search in curenet file",
 	},
@@ -118,7 +127,9 @@ local keys = {
 		"<leader>fg",
 		function()
 			require("telescope").extensions.live_grep_args.live_grep_args({
-				previewer = true,
+				
+				layout_strategy = "horizontal",
+				layout_config = { width = 0.9, height = 0.5, preview_width = 0.5, preview_cutoff = 0.1 },
 			})
 		end,
 		desc = "Search keyword",

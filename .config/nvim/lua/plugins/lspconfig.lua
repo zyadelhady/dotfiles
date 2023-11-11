@@ -112,6 +112,9 @@ local config = function()
 		filetypes = { "sh" },
 	})
 
+	--html
+	lspconfig.html.setup({ on_attach = on_attach, capabilities = capabilities, filetypes = { "html", "heex" } })
+
 	-- html, typescriptreact, javascriptreact, css, sass, scss, less, svelte, vue
 	lspconfig.emmet_ls.setup({
 		capabilities = capabilities,
@@ -123,6 +126,7 @@ local config = function()
 			"javascript",
 			"css",
 			"sass",
+			"heex",
 			"scss",
 			"less",
 			"svelte",
@@ -148,7 +152,14 @@ local config = function()
 		capabilities = capabilities,
 		-- on_attach = on_attach,
 		flags = {
+
 			debounce_text_changes = 150,
+		},
+		settings = {
+
+			elixirLS = {
+				dialyzerEnabled = false,
+			},
 		},
 	})
 
@@ -233,17 +244,19 @@ local keys = {
 	},
 	{
 		mode = "n",
-		"d]",
+		"d'",
 		function()
 			vim.diagnostic.goto_next()
 		end,
+		desc = "got to next diagnostic",
 	},
 	{
 		mode = "n",
-		"d[",
+		"d;",
 		function()
 			vim.diagnostic.goto_prev()
 		end,
+		desc = "go to prev diagnostic",
 	},
 	{
 		mode = { "n", "v" },
