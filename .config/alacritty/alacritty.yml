@@ -1,7 +1,17 @@
 font:
- size: 12.0
-
-
+  size : 12.0
+  normal:
+    family: LiterationMono Nerd Font
+    style: ExtraLight
+  bold:
+    family: LiterationMono Nerd Font
+    style: Light
+  italic: 
+    family: LiterationMono Nerd Font
+    style: Extra Light Italic
+  bold_italic:
+    family: LiterationMono Nerd Font
+    style: Light Italic
 colors:
- primary:
-  background: '#000000'
+  primary:
+    background: '#000000'
