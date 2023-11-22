@@ -1,6 +1,5 @@
 local opt = vim.opt
 
-
 -- Encodeing
 vim.scriptencoding = "utf-8"
 opt.encoding = "utf-8"
@@ -52,6 +51,4 @@ opt.autochdir = false
 opt.mouse:append("a")
 opt.clipboard:append("unnamedplus")
 opt.modifiable = true
-
-
 

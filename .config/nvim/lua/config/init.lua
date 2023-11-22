@@ -21,7 +21,7 @@ local plugins = "plugins"
 
 local opts = {
 	install = {
-		colorscheme = { "vscode" },
+		colorscheme = { "base16-default-dark" },
 	},
 	rtp = {
 		disabled_plugins = {

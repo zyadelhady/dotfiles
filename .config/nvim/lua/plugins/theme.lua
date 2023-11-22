@@ -1,19 +1,18 @@
 -- return {
---     'Mofiqul/vscode.nvim',
---     lazy = false,
---     priority = 999,
---  config = function()
---     vim.o.background = "dark"
---     require("vscode").setup({})
---     require("vscode").load()
---   end,
--- }
---
+-- 	"EdenEast/nightfox.nvim",
+-- 	lazy = false,
+-- 	pioriy = 1000,
+-- 	config = function()
+-- 		vim.cmd("colorscheme carbonfox")
+-- 	end,
+--  }
+
 return {
-	"EdenEast/nightfox.nvim",
+	"tinted-theming/base16-vim",
 	lazy = false,
-	pioriy = 1000,
+	piority = 1000,
 	config = function()
-		vim.cmd("colorscheme carbonfox")
+		vim.g.base16_colorspace = 256
+		vim.cmd("colorscheme base16-default-dark")
 	end,
 }
