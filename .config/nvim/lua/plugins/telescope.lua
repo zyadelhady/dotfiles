@@ -20,6 +20,8 @@ local config = function()
         "tmp",
         "cover",
         "phoenix-*.ez",
+        "bin",
+        "obj",
       },
       preview = {
         filesize_limit = 1,
