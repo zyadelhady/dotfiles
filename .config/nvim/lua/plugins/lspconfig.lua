@@ -25,8 +25,8 @@ local config = function()
 	function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
 		opts = opts or {}
 		opts.border = opts.border or border
-		opts.max_width = opts.max_width or 80
-		opts.max_height = opts.max_height or 20
+		opts.max_width = opts.max_width or 40
+		opts.max_height = opts.max_height or 15
 		return orig_util_open_floating_preview(contents, syntax, opts, ...)
 	end
 
@@ -218,7 +218,7 @@ local config = function()
 		virtual_lines = false,
 		float = {
 			source = "if_many",
-			header = false,
+			header = true,
 			border = "rounded",
 			focusable = true,
 		},

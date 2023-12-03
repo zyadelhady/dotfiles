@@ -1,1 +1,1 @@
-return { "Issafalcon/lsp-overloads.nvim",event = "BufReadPre" }
+return { "Issafalcon/lsp-overloads.nvim", enabled = false, event = "BufReadPre" }
