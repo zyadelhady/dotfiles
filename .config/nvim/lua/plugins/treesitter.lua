@@ -14,11 +14,6 @@ local config = function()
       use_virtual_text = true,
       lint_events = { "BufWrite", "CursorHold" },
     },
-    event = {
-
-      "BufReadPre",
-      "BufNewFile",
-    },
     ensure_installed = {
       "markdown",
       "json",
@@ -50,7 +45,12 @@ local config = function()
       enable = true,
       enable_autocmd = false,
     },
-
+    highlight = {
+      custom_captures = {},
+      disable = {},
+      enable = true,
+      additional_vim_regex_highlighting = false,
+    },
     auto_install = true,
     highlight = {
       enable = true,
@@ -63,26 +63,6 @@ local config = function()
         node_incremental = "<Leader>v",
         node_decremental = "<bs>",
         scope_incremental = false,
-      },
-    },
-    textobjects = {
-      select = {
-        enable = true,
-        -- Automatically jump forward to textobj, similar to targets.vim
-        lookahead = true,
-        keymaps = {
-          ["af"] = { query = "@function.outer", desc = "Select outer part of a function" },
-          ["if"] = { query = "@function.inner", desc = "Select inner part of a function" },
-          ["ac"] = "@class.outer",
-          ["ic"] = { query = "@class.inner", desc = "Select inner part of a class region" },
-          ["as"] = { query = "@scope", query_group = "locals", desc = "Select language scope" },
-        },
-        selection_modes = {
-          ["@parameter.outer"] = "v", -- charwise
-          ["@function.outer"] = "V", -- linewise
-          ["@class.outer"] = "<c-v>", -- blockwise
-        },
-        include_surrounding_whitespace = true,
       },
     },
   })
@@ -113,4 +93,3 @@ return {
   dependencies = dependencies,
   config = config,
 }
-

@@ -2,10 +2,10 @@ font:
   size : 12.0
   normal:
     family: LiterationMono Nerd Font
-    style: ExtraLight
+    style: Light
   bold:
     family: LiterationMono Nerd Font
-    style: Light
+    style: Bold
   italic: 
     family: LiterationMono Nerd Font
     style: Extra Light Italic

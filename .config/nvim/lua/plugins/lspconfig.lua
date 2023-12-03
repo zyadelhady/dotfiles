@@ -2,31 +2,39 @@ local on_attach = require("util.lsp").on_attach
 local diagnostic_signs = require("util.lsp").diagnostic_signs
 
 local config = function()
+	local signs = { Error = " ", Warn = " ", Hint = "󰌵 ", Info = " " }
+	for type, icon in pairs(signs) do
+		local hl = "DiagnosticSign" .. type
+		vim.fn.sign_define(hl, { text = icon, texthl = hl })
+	end
 	require("neoconf").setup({})
 
+	local border = {
+		{ "╭", "FloatBorder" },
+		{ "─", "FloatBorder" },
+		{ "╮", "FloatBorder" },
+		{ "│", "FloatBorder" },
+		{ "╯", "FloatBorder" },
+		{ "─", "FloatBorder" },
+		{ "╰", "FloatBorder" },
+		{ "│", "FloatBorder" },
+	}
+
+	-- To instead override globally
 	local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
 	function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
 		opts = opts or {}
 		opts.border = opts.border or border
+		opts.max_width = opts.max_width or 80
+		opts.max_height = opts.max_height or 20
 		return orig_util_open_floating_preview(contents, syntax, opts, ...)
 	end
 
 	local cmp_nvim_lsp = require("cmp_nvim_lsp")
-
 	local lspconfig = require("lspconfig")
 
 	local capabilities = cmp_nvim_lsp.default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
-	--clangd
-	-- lspconfig.clangd.setup({
-	-- 	capabilities = capabilities,
-	-- 	on_attach = on_attach,
-	-- 	cmd = {
-	-- 		"clangd",
-	-- 		"--offset-encoding=utf-16",
-	-- 	},
-	-- })
-	-- lua
 	lspconfig.lua_ls.setup({
 		capabilities = capabilities,
 		on_attach = on_attach,
@@ -204,10 +212,15 @@ local config = function()
 
 	-- --- diagnostics
 	vim.diagnostic.config({
-		underline = false,
+		signs = true,
+		underline = true,
 		update_in_insert = true,
+		virtual_lines = false,
 		float = {
 			source = "if_many",
+			header = false,
+			border = "rounded",
+			focusable = true,
 		},
 		virtual_text = {
 			spacing = 4,

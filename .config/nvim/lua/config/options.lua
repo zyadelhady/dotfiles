@@ -52,3 +52,5 @@ opt.mouse:append("a")
 opt.clipboard:append("unnamedplus")
 opt.modifiable = true
 
+
+vim.g.markdown_fenced_languages = { "javascript", "typescript", "scss", "css", "html" }

@@ -4,18 +4,17 @@ local M = {}
 
 -- bravo keymaps on the active lsp server
 M.on_attach = function(client, bufnr)
-
 	if client.server_capabilities.signatureHelpProvider then
 		require("lsp-overloads").setup(client, {
 			-- UI options are mostly the same as those passed to vim.lsp.util.open_floating_preview
 			ui = {
-				border = "single", -- The border to use for the signature popup window. Accepts same border values as |nvim_open_win()|.
+				border = "rounded", -- The border to use for the signature popup window. Accepts same border values as |nvim_open_win()|.
 				height = nil, -- Height of the signature popup window (nil allows dynamic sizing based on content of the help)
 				width = nil, -- Width of the signature popup window (nil allows dynamic sizing based on content of the help)
 				wrap = true, -- Wrap long lines
 				wrap_at = nil, -- Character to wrap at for computing height when wrap enabled
-				max_width = nil, -- Maximum signature popup width
-				max_height = nil, -- Maximum signature popup height
+				max_width = 80, -- Maximum signature popup width
+				max_height = 20, -- Maximum signature popup height
 				-- Events that will close the signature popup window: use {"CursorMoved", "CursorMovedI", "InsertCharPre"} to hide the window when typing
 				close_events = { "CursorMoved", "BufHidden", "InsertLeave", "CursorMovedI" },
 				focusable = true, -- Make the popup float focusable
