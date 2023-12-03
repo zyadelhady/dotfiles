@@ -297,6 +297,7 @@ gkbd-capplet
 glib-networking:amd64
 glib-networking-common
 glib-networking-services
+glow
 gnome-accessibility-themes
 gnome-bluetooth
 gnome-bluetooth-3-common
@@ -582,6 +583,7 @@ libavutil56:amd64
 libayatana-appindicator3-1
 libayatana-ido3-0.4-0:amd64
 libayatana-indicator3-7:amd64
+libbcg729-0:amd64
 libbdplus0:amd64
 libbinutils:amd64
 libblas3:amd64
@@ -612,6 +614,7 @@ libbsd0:amd64
 libbytesize-common
 libbytesize1:amd64
 libbz2-1.0:amd64
+libc-ares2:amd64
 libc-bin
 libc-dev-bin
 libc-devtools
@@ -1031,6 +1034,7 @@ libmessaging-menu0:amd64
 libmfx1:amd64
 libmhash2:amd64
 libminiupnpc17:amd64
+libminizip1:amd64
 libmm-glib0:amd64
 libmnl0:amd64
 libmount-dev:amd64
@@ -1203,7 +1207,12 @@ libqpdf28:amd64
 libqt5core5a:amd64
 libqt5dbus5:amd64
 libqt5gui5:amd64
+libqt5multimedia5:amd64
+libqt5multimedia5-plugins:amd64
+libqt5multimediagsttools5:amd64
+libqt5multimediawidgets5:amd64
 libqt5network5:amd64
+libqt5printsupport5:amd64
 libqt5svg5:amd64
 libqt5widgets5:amd64
 libquadmath0:amd64
@@ -1296,6 +1305,7 @@ libsm6:amd64
 libsmartcols1:amd64
 libsmbclient:amd64
 libsmbios-c2
+libsmi2ldbl:amd64
 libsnapd-glib1:amd64
 libsnappy1v5:amd64
 libsndfile1:amd64
@@ -1313,9 +1323,11 @@ libspa-0.2-avb:amd64
 libspa-0.2-bluetooth:amd64
 libspa-0.2-jack:amd64
 libspa-0.2-modules:amd64
+libspandsp2:amd64
 libspectre1:amd64
 libspeechd2:amd64
 libspeex1:amd64
+libspeexdsp1:amd64
 libsphinxbase3:amd64
 libsqlite3-0:amd64
 libsratom-0-0:amd64
@@ -1438,6 +1450,9 @@ libwhoopsie-preferences0
 libwhoopsie0:amd64
 libwinpr2-2:amd64
 libwireplumber-0.4-0:amd64
+libwireshark-data
+libwireshark16:amd64
+libwiretap13:amd64
 libwnck-3-0:amd64
 libwnck-3-common
 libwoff1:amd64
@@ -1447,6 +1462,7 @@ libwpebackend-fdo-1.0-1:amd64
 libwpg-0.3-3:amd64
 libwps-0.4-4:amd64
 libwrap0:amd64
+libwsutil14:amd64
 libwww-perl
 libwww-robotrules-perl
 libwxbase3.0-0v5:amd64
@@ -1897,6 +1913,7 @@ ubuntu-docs
 ubuntu-drivers-common
 ubuntu-keyring
 ubuntu-minimal
+ubuntu-pro-client-l10n
 ubuntu-release-upgrader-core
 ubuntu-standard
 ucf
@@ -1935,6 +1952,9 @@ whoopsie-preferences
 wireless-regdb
 wireless-tools
 wireplumber
+wireshark
+wireshark-common
+wireshark-qt
 witalian
 wngerman
 wogerman
