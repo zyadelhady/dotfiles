@@ -218,7 +218,7 @@ local config = function()
 		virtual_lines = false,
 		float = {
 			source = "if_many",
-			header = true,
+			header = false,
 			border = "rounded",
 			focusable = true,
 		},
