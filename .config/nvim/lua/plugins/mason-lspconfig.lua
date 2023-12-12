@@ -4,7 +4,6 @@ local opts = {
 		"efm",
 		"bashls",
 		"tsserver",
-		"solidity",
 		"tailwindcss",
 		"pyright",
 		"html",
@@ -13,6 +12,7 @@ local opts = {
 		"emmet_ls",
 		"jsonls",
 		"elixirls",
+		"jedi_language_server",
 	},
 
 	automatic_installation = true,
