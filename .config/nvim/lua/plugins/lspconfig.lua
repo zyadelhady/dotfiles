@@ -1,5 +1,4 @@
 local on_attach = require("util.lsp").on_attach
-local diagnostic_signs = require("util.lsp").diagnostic_signs
 
 local config = function()
   local signs = { Error = " ", Warn = " ", Hint = "󰌵 ", Info = " " }
@@ -66,23 +65,6 @@ local config = function()
     capabilities = capabilities,
     on_attach = on_attach,
   })
-
-  -- -- python
-  -- lspconfig.pyright.setup({
-  -- 	capabilities = capabilities,
-  -- 	on_attach = on_attach,
-  -- 	settings = {
-  -- 		pyright = {
-  -- 			disableOrganizeImports = false,
-  -- 			analysis = {
-  -- 				useLibraryCodeForTypes = true,
-  -- 				autoSearchPaths = true,
-  -- 				diagnosticMode = "workspace",
-  -- 				autoImportCompletions = true,
-  -- 			},
-  -- 		},
-  -- 	},
-  -- })
 
   -- typescript
   lspconfig.tsserver.setup({
@@ -183,36 +165,6 @@ local config = function()
         dialyzerEnabled = false,
       },
     },
-  })
-
-  -- omnisharp
-  lspconfig.omnisharp.setup({
-    on_attach = on_attach,
-    capabilities = capabilities,
-    filetypes = { "cs", "vb" },
-    cmd = {
-      "/home/zyad/.local/share/nvim/mason/packages/omnisharp/omnisharp",
-      "--languageserver",
-      "--hostPID",
-      tostring(vim.fn.getpid()),
-    },
-    root_dir = function(fname)
-      local root_patterns = { "*.sln", "*.csproj", "omnisharp.json", "function.json" }
-      for _, pattern in ipairs(root_patterns) do
-        local found = require("lspconfig.util").root_pattern(pattern)(fname)
-        if found then
-          return found
-        end
-      end
-    end,
-    enable_editorconfig_support = true,
-    enable_ms_build_load_projects_on_demand = false,
-    enable_roslyn_analyzers = false,
-    organize_imports_on_format = true,
-    enable_import_completion = true,
-    sdk_include_prereleases = true,
-    analyze_open_documents_only = false,
-    show_completion_items_from_unimported_namespaces = true,
   })
 
   -- --- diagnostics

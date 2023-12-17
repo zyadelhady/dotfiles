@@ -15,6 +15,14 @@ keymap("n", "<leader>sd", ":split<CR>", opts)  -- Split Horizontally
 keymap("n", "<leader>wc", "<C-w>q", opts)      -- close pane
 keymap("n", "<leader>ww", "<C-w>w", opts)      -- switch panes
 
+-- Increase and Decrease Height
+keymap("n", "<leader>hi", ":resize +2<CR>", opts)
+keymap("n", "<leader>hd", ":resize -2<CR>", opts)
+
+-- Increase and Decrease Width
+keymap("n", "<leader>wi", ":vertical resize +2<CR>", opts)
+keymap("n", "<leader>wd", ":vertical resize -2<CR>", opts)
+
 -- Identing
 keymap("v", "<S-TAB>", "<gv")
 keymap("v", "<TAB>", ">gv")
