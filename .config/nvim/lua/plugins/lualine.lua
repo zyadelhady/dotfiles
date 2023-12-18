@@ -7,7 +7,7 @@ local config = function()
       component_separators = "|",
       section_separators = "",
     },
-    section = { lualine_b = { "branch" } },
+    section = { lualine_b = { "branch" }, lualine_c = { require("auto-session.lib").current_session_name } },
   })
 end
 
