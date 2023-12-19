@@ -158,6 +158,6 @@ NC='\[\e[0m\]'
 YELLOW='\[\e[0;93m\]'
 
 alias vim="nvim"
-
+alias ls="exa"
 PS1="$YELLOW>$NC "
 
