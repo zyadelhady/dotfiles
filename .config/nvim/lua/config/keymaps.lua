@@ -27,9 +27,12 @@ keymap("n", "<leader>wd", ":vertical resize -2<CR>", opts)
 keymap("v", "<S-TAB>", "<gv")
 keymap("v", "<TAB>", ">gv")
 
+--copy all buffer
+keymap({ "n", "v" }, "<leader>ya", "<CMD>%y<CR>", opts)
+
 -- Comments
-vim.api.nvim_set_keymap("n", "<C-_>", "gcc", { noremap = false })
-vim.api.nvim_set_keymap("v", "<C-_>", "gcc", { noremap = false })
+vim.api.nvim_set_keymap("n", "<leader>c", "gcc", { noremap = false })
+vim.api.nvim_set_keymap("v", "<leader>c", "gcc<ESC>", { noremap = false })
 
 vim.api.nvim_set_keymap("n", "<A-s>", ":LspOverloadsSignature<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("i", "<A-s>", "<cmd>LspOverloadsSignature<CR>", { noremap = true, silent = true })
