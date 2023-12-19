@@ -12,14 +12,12 @@ return {
 		null.setup({
 			debounce = 150,
 			sources = {
-
 				diagnostics.credo,
 				formatting.prettierd.with({ extra_filetypes = { "elixir", "heex" } }),
 				formatting.fixjson,
 				formatting.stylua,
 				diagnostics.luacheck,
 				diagnostics.protolint,
-				formatting.csharpier,
 				formatting.buf,
 				diagnostics.eslint_d.with({
 
