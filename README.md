@@ -55,3 +55,9 @@ dconf write /org/gnome/mutter/dynamic-workspaces false
  dconf write /org/gnome/desktop/wm/keybindings/move-to-workspace-9  "['<Super><Shift>9']"
  
  >>>>>
+
+Backup all dconf settings: dconf dump / > settings_backup.dconf
+
+Then create a tarball with that file and a few other directories: tar -zxvf settings_backup.tar.gz settings_backup.dconf .config .local/share/gnome-shell/extensions
+
+You can restore the dconf settings by running this: dconf load / < settings_backup.dconf
