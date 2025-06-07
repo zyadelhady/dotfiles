@@ -1,0 +1,25 @@
+font:
+  size : 12.0
+  normal:
+    family: LiterationMono Nerd Font
+    style: Light
+  bold:
+    family: LiterationMono Nerd Font
+    style: Bold
+  italic: 
+    family: LiterationMono Nerd Font
+    style: Extra Light Italic
+  bold_italic:
+    family: LiterationMono Nerd Font
+    style: Light Italic
+colors:
+  primary:
+    background: '#000000'
+window:
+  padding:
+    x: 5
+    y: 5
+  dynamic_title: true
+
+
+

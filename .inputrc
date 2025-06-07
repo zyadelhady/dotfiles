@@ -1,0 +1,7 @@
+$include /etc/inputrc
+
+#set enable-keypad on
+
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+
